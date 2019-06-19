@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>苏州绘真生物科技有限公司单细胞测序分析报告</title>
+<script type="text/javascript">
+    function showOrHide(divname) {
+        div = document.getElementById(divname);
+        if(div.style.display == 'none')
+            div.style.display = 'block';
+        else
+            div.style.display = 'none';
+    }
+</script>
+<style type="text/css">
+.section_title {color:#ffffff;font-size:20px;padding:5px;text-align:left;background:#663355; margin-top:10px;}
+.section_div { page-break-after: avoid;}
+.subsection_title {font-size:16px;font-weight:bold;padding:5px;margin-top:10px;text-align:left;color:#663355;}
+.col1 {width:150px; font-weight:bold;}
+table {border:1px solid #999999;padding:2x;border-collapse:collapse; width:1000px; text-align:center}
+td {border:1px solid #dddddd;padding:5px;font-size:14px;}
+.header_col {width:500px; font-size:14px; color:#ffffff;background:#556699}
+a:visited {color: #999999}
+p {text-indent:2em;  font-size:14px}
+img {padding:5px; }
+body {margin:20px;}
+.sub_section_tips {color:#999999;font-size:10px;padding-left:5px;padding-bottom:3px;}
+#footer {text-align:left;padding:15px;color:#ffffff;font-size:10px;background:#663355;font-family:Arail,'Liberation Mono', Menlo, Courier, monospace;}
+
+</style>
+</head>
+<body>
+<!--<div align="left">
+<img src="./img/logo.png" alt="logo图片" width=200px />
+</div>-->
+<h1 style="text-align:center;color:#663355">绘真生物单细胞测序分析报告</h1>
+<p align="right">{%报告时间%}</p>
+<div class="section_div">
+    <div class="section_title" onclick=showOrHide("一.报告信息")>一. 报告信息</a></div>
+    <div id="一.报告信息">
+        <div class="subsection_title" onclick=showOrHide("项目信息")>项目信息</div>
+            <div id="项目信息">
+                <table>
+                    <tr>
+                        <td class="col1">合同编号</td>
+                        <td>{%合同编号%}</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">项目描述</td>
+                        <td>{%项目描述%}</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">样本物种</td>
+                        <td>{%样本物种%}</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">样本类型</td>
+                        <td>{%样本类型%}</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">样本数目</td>
+                        <td>{%样本数目%}</td>
+                    </tr>
+                </table>
+            </div>
+        <div class="subsection_title" onclick=showOrHide("客户信息")>客户信息</div>
+            <div id="客户信息">
+                <table>
+                    <tr>
+                        <td class="col1">客户姓名</td>
+                        <td>{%客户姓名%}</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">客户邮箱</td>
+                        <td>{%客户邮箱%}</td>
+                    </tr>
+                </table>
+            </div>
+        <div class="subsection_title" onclick=showOrHide("测序信息")>测序信息</div>
+            <div id="测序信息">
+                <table>
+                    <tr>
+                        <td class="col1">测序类型</td>
+                        <td>{%测序类型%}</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">数据总量</td>
+                        <td>{%数据总量%}</td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+</div>
+<div class="section_div">
+    <div class="section_title" onclick=showOrHide("二.实验流程")>二. 实验流程</div>
+    <div id="二.实验流程">
+        <p>单细胞转录组测序实验流程包括RNA提取、RNA样品质量检测、文库构建、文库纯化、文库检测、文库定量、测序簇的生成以及上机测序。
+        每一个环节都会对数据质量和数量产生影响，而数据质量又会直接影响后续信息分析的结果，为了保证源头数据的准确性与可靠性，
+        我们对每一步实验过程都进行严格质控，检测合格后，把不同文库按照有效浓度及目标下机数据量的需求混样后进行Illumina HiSeq测序。
+        流程图如下：</p>
+        <div align="center">
+            <img src="./img/experiment.png" alt="实验流程图" width=200px />
+            <p>Figure2.1 实验流程图</p>
+        </div>
+    </div>
+</div>
+
+<div class="section_div">
+    <div class="section_title" onclick=showOrHide("三.生物信息学分析流程")>三. 生物信息学分析流程</div>
+    <div id="三.生物信息学分析流程">
+        <p>单细胞转录组测序(Single-cell RNA-sequencing, scRNA-seq)是在单个细胞水平对 mRNA 进行高通量测序的一项新技术，
+        其原理是将多细胞生物分离的单个细胞中微量的转录组 mRNA 通过高效扩增后再进行高通量测序。
+        单细胞转录组测序能够有效解决组织样本无法破解的细胞异质性难题以及常规RNA-seq被掩盖的细胞群内的转录组异质性难题，
+        有助于发现新的稀有细胞类型，并深入了解发育过程中的表达调控机制。</p>
+        <p>获得原始测序数据（Pass Filter Data）后，通过如下流程进行生物信息分析：</p>
+        <div align="center">
+            <img src="./img/scDataAnalysis.png" alt="生物信息学分析流程图" width=800px />
+            <p>Figure3.1 生物信息学分析流程图</p>
+        </div>
+    </div>
+</div>
+<div class="section_div">
+    <div class="section_title" onclick=showOrHide("四.生物信息学分析结果")>四. 生物信息学分析结果</div>
+    <div id="四.生物信息学分析结果">
+        <div class="subsection_title" onclick=showOrHide("barcode和UMI数据QC统计分析")>4.1 测序原始数据R1的barcode和UMI数据QC统计分析</div>
+        <div id="barcode和UMI数据QC统计分析">
+            <div align="center">
+                <img src="./img/barcode.png" alt="单细胞测序R1结构示意图" width=600px />
+                <p>Figure4.1.1 单细胞测序数据R1结构示意图</p>
+            </div>
+            <p>在单细胞测序数据中，R1的barcode序列和UMI序列主要用来区分单细胞和单分子，我们使用fastp（0.19.4）统计原始数据的barcode和UMI序列数据质量信息，
+            情况如下:</p>
+            <div align="center">
+                <p>Table4.1.1 测序数据barcode和UMI质量统计信息</p>
+                {%测序数据barcode和UMI质量统计信息表%}
+                <p class="sub_section_tips">各样本Table4.1.1见"Result/01_QC/*_QCsummary.xls"</p>
+            </div>
+            <p>名词解释：</p>
+            <p>sample: 样本名称</p>
+            <p>raw_reads: 原始数据reads数量</p>
+            <p>raw_bases: 原始数据bases数量</p>
+            <p>raw_Q30: 原始数据Q30百分含量</p>
+            <p>raw_GC: 原始数据GC百分含量</p>
+            <p>clean_reads: 去低质量后reads数量</p>
+            <p>clean_bases: 去低质量后bases数量</p>
+            <p>clean_Q30: 去低质量后数据Q30</p>
+            <p>clean_GC: 去低质量后数据GC含量</p>
+            <p>passed_filter_reads: 通过过滤的数据百分含量</p>
+        </div>
+        <div class="subsection_title" onclick=showOrHide("细胞数目评估")>4.2 有效细胞数目评估</div>
+        <div id="细胞数目评估">
+            <p>确定有效单细胞数目对下游分析非常重要，我们初步取约1-2万个细胞进入下游分析，并且获得有效细胞的“白名单”，同时对部分barcode进行修正，
+            提取初步有效的单细胞reads，分析各个细胞的reads分布情况，我们获得结果如下（count数表示单细胞的有效reads数）：</p>
+            <div align="center">
+                <div>
+                    <img src="{%单细胞count对数值的密度分布图%}" alt="单细胞readsCounts密度分布图" width=500px />
+                    <p>Figure 4.2.1 单细胞count对数值的密度分布图</p>
+                    <p class="sub_section_tips">各样本Figure 4.2.1见"Result/02_whiteList/*_cell_barcode_count_density.png"</p>
+                </div>
+                <div>
+                    <img src="{%单细胞count值降序排列对数值分布图%}" alt="单细胞readsCounts对数分布图" width=500px />
+                    <p>Figure 4.2.2 单细胞count值降序排列对数值分布图</p>
+                    <p class="sub_section_tips">各样本Figure 4.2.2见"Result/02_whiteList/*_cell_barcode_counts.png"</p>
+                </div>
+                <div>
+                    <img src="{%单细胞count值降序排列累计曲线图%}" alt="单细胞readsCounts累计曲线图" width=500px />
+                    <p>Figure 4.2.3 单细胞count值降序排列累计曲线图</p>
+                    <p class="sub_section_tips">各样本Figure 4.2.3 见"Result/02_whiteList/*_cell_barcode_knee.png"</p>
+                </div>
+            </div>
+            <p>初步提取的有效单细胞reads数目分布表部分示例：</p>
+            <div align="center">
+                <p>Table 4.2.1 有效细胞reads数目分布</p>
+                {%有效单细胞reads数目分布表%}
+                <p class="sub_section_tips">各样本Table4.2.1见"Result/03_extract/*_cellReadsCounts.tsv"</p>
+            </div>
+                <p>名词解释：</p>
+                <p>read_ID: 根据barcode获得的单细胞ID</p>
+                <p>read_counts: 单细胞reads的count数目</p>
+            <p>初步提取的有效单细胞数据统计情况如下：</p>
+            <div align="center">
+                <p>Table 4.2.2 有效细胞数据统计信息</p>
+                {%有效单细胞数据统计信息表%}
+                <p class="sub_section_tips">各样本Table4.2.2见"Result/03_extract/*_cellReadsInfo.tsv"</p>
+            </div>
+            <p>名词解释：</p>
+            <p>all_cells_count: 细胞数目</p>
+            <p>all_cells_reads: 所有细胞reads数目</p>
+            <p>average_reads_per_cell: 平均每个单细胞reads数目</p>
+        </div>
+        
+        <div class="subsection_title" onclick=showOrHide("基因组比对分析")>4.3 基因组比对分析</div>
+        <div id="基因组比对分析">
+            <p>运用STAR（2.6.0）软件将经过初步挑选的细胞Read2和参考基因组进行比对，获得比对后的BAM文件，然后运用featureCounts（v1.6.3）将比对结果映射到基因组的基因上，
+            最终的BAM文件上的XS Tag会记录映射结果信息。根据映射结果和序列的barcode和UMI信息，我们可以获得细胞群体的基因表达矩阵。
+            我们统计比对分析获得结果如下：</p>
+        <div align="center">
+            <p>Table 4.3.1 基因组比对分析</p>
+            {%基因组比对分析表%}
+            <p class="sub_section_tips">各样本Table4.3.1见"Result/04_mapAndAssign/*_mapstat.tsv"</p>
+        </div>
+        <p>名词解释：</p>
+            <p>Number of input reads: 基因组比对的reads总数</p>
+            <p>Average input read length: 进入比对的平均reads长度</p>
+            <p>Uniquely mapped reads number: 唯一匹配基因组的reads数目</p>
+            <p>Uniquely mapped reads %: 唯一匹配reads比对率</p>
+            <p>Average mapped length: 比对上的reads平均长度</p>
+            <p>Number of reads mapped to too many loci：多位置比对上基因组的reads数目</p>
+            <p>% of reads mapped to too many loci：多位置比对上基因组的reads比率</p>
+        </div>
+
+        <div class="subsection_title" onclick=showOrHide("单细胞转录组分析")>4.4 单细胞转录组分析</div>
+        <div id="单细胞转录组分析">
+            <p>4.4.1 单细胞质控和过滤</p>
+            <p>经过上游步骤的过滤和比对分析，我们得到有效细胞表达矩阵，通过分析各个单细胞基因表达数目(nGene)和UMI数目(nUMI)，我们对单细胞群体数据进行展示方便下游进行进一步过滤筛选高质量细胞。</p>
+            <div align="center">
+                <img src="{%单细胞的nGenenUMI分布图%}" alt="单细胞QC图" width=600px />
+                <p>Figure 4.4.1.1 单细胞的nGene，nUMI，percent.mito分布情况</p>
+                <p class="sub_section_tips">各样本Figure 4.4.1.1见“Result/05_scSeqAnalysis/*_QCPlot.png”</p>
+                <img src="{%单细胞中nUMI/nGene相关关系展示图%}" alt="单细胞QC相关关系图" width=500px />
+                <p>Figure 4.4.1.2 单细胞中nUMI/nGene相关关系展示</p>
+                <p class="sub_section_tips">各样本Figure 4.3.1.2见“Result/05_scSeqAnalysis/*_GenePlot.png)”</p>
+            </div>
+            <p>名词解释：</p>
+            <p>nGene：单细胞测到的基因数目</p>
+            <p>nUMI：单细胞测到单分子数目</p>
+            <p>通过上面展示的单细胞对比目标物种基因数目和filtered UMI含量，我们选择合适的阈值对高质量单细胞进行过滤，
+            去掉基因数目或者UMI数目过少的细胞，得到过滤后的高质量细胞进入下游分析。</p>
+            <div align="center">
+                <p>Table 4.4.1.1 细胞过滤情况</p>
+                {%细胞过滤情况表%}
+            <p class="sub_section_tips">各样本Table 4.4.1.1 见“Result/05_scSeqAnalysis/*_cellFiltered.tsv”</p>
+            </div>
+            <p>名词解释：</p>
+            <p>all_gene_count：单细胞群测到基因数目的总和</p>
+            <p>all_cell_count：单细胞群共有单细胞总数</p>
+            <div align="center">
+                <p>Table 4.4.1.2 下游高质量细胞过滤后质量统计结果</p>
+                {%下游高质量细胞过滤后统计结果表%}
+                <p class="sub_section_tips">各样本Table 4.4.1.2 见“Result/05_scSeqAnalysis/*_saturation.tsv”</p>
+            </div>
+            <p>名词解释：</p>
+            <p>final number of cells：过滤后最终下游分析细胞数量</p>
+            <p>mean read per cell：细胞平均reads数目</p>
+            <p>median gene per cell：细胞基因中位数</p>
+            <p>median UMI per cell：细胞UMI中位数</p>
+            <p>sequencing saturation：测序饱和度估计</p>
+            
+            <p>4.4.2 我们对高质量的细胞表达矩阵进行归一化处理，经过下游主成分分析选择对原始数据方差贡献较大的特征成分，
+            去掉原始数据中较小特征值对应的成分对数据进行降维；然后选用tSNE对数据进行非线性降维聚类，
+            表达模式相似的细胞会聚为同一个cluster，进行可视化。</p>
+            <div align="center">
+                <img src="{%细胞亚群聚类图%}" alt="tSNE聚类图" width=1000px />
+                <p>Figure 4.4.2.1 细胞亚群聚类图</p>
+                <p class="sub_section_tips">各样本Figure 4.4.2.1 见"Result/05_scSeqAnalysis/*_TSNEPlot.png"</p>
+            </div> 
+            <p>4.4.3 对各个cluster进行差异基因表达分析寻找markerGene。</p>
+            <div align="center">
+                <p>Table 4.4.3.1 不同cluster的markerGene展示</p>
+                {%不同cluster的markerGene展示表%}
+            <p class="sub_section_tips">上为截取部分结果展示，各样本Table 4.4.3.1 见"Result/05_scSeqAnalysis/*_markerGene.csv"</p>
+            </div>
+            <p>名词解释：</p>
+            <p>p_val：统计差异显著性值</p>
+            <p>avg_logFC：平均差异表达倍数</p>
+            <p>pct.1，pct.2：统计检验中该基因在细胞群体中表达占比</p>
+            <p>p_val_adj：矫正后的P_val</p>
+            <p>cluster：代表tSNE聚类中各个cluster</p>
+            <p>gene：marker基因名字</p>
+            
+            <p>4.4.4 不同细胞亚群的top10 markerGene的表达热图进行展示。</p>
+            <div align="center">
+                <img src="{%各cluster的top10markerGene表达热图%}" alt="ClusterTop10MarkerGene表达热图" width=800px />
+                <p>Figure 4.4.4.1 各cluster的top10markerGene表达热图</p>
+                <p class="sub_section_tips">各样本Figure 4.4.4.1 见"Result/05_scSeqAnalysis/*_ClusterHeatmap.png"</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section_div">
+    <div class="section_title" onclick=showOrHide("五.参考文献与附录")>五. 参考文献与附录</div>
+    <div id="五.参考文献与附录">
+        <div class="subsection_title" onclick=showOrHide("参考文献")>5.1 参考文献</div>
+        <div id="参考文献">
+            <p>[1]. Droplet barcoding for single-cell transcriptomics applied to embryonic stem cells.
+            Cell. 2015 May 21;161(5):1187-1201. doi: 10.1016/j.cell.2015.04.044.</p>
+            <p>[2]. Highly Parallel Genome-wide Expression Profiling of Individual Cells Using Nanoliter Droplets.
+            Cell. 2015 May 21;161(5):1202-1214. doi: 10.1016/j.cell.2015.05.002.</p>
+            <p>[3]. Massively parallel digital transcriptional profiling of single cells.
+            Nat Commun. 2017 Jan 16;8:14049. doi: 10.1038/ncomms14049.</p>
+            <p>[4]. Comparison of clustering tools in R for medium-sized 10x Genomics single-cell RNA-sequencing data.
+            2018 Dec 19];7:1297. doi: 10.12688/f1000research.15809.2. eCollection 2018.</p>
+            <p>[5]. Integrating single-cell transcriptomic data across different conditions, technologies, and species.
+            2018 Jun;36(5):411-420. doi: 10.1038/nbt.4096. Epub 2018 Apr 2.</p>
+        </div>
+        <div class="subsection_title" onclick=showOrHide("附录")>5.2 附录</div>
+        <div id="附录">
+            <p>HTML报告推荐使用谷歌浏览器打开，结果文件建议使用Excel或者Notepad++等专业文本编辑器打开。</p>
+            <p>使用浏览器打开结题报告时，若出现类似"为了有利于保护安全性，Internet Explorer 已限制此网页运行可以访问计算机的脚本或ActiveX控件，请选择允许。</p>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <p>苏州绘真生物科技有限公司    地址：苏州工业园区新平街388号腾飞科技园9幢    电话：0512-81880198</p>
+</div>
+
+</body>
+</html>
